@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Lista Usuarios";
+}
+
+<h2>Lista de Usuarios</h2>
+
+<br></br>
+<br />
+
+@using (Html.BeginForm())
+{
+    <select name="selUsuarios">
+        @foreach (var user in Model)
+        {
+            <option>@user.nombre</option>
+        }
+    </select>
+
+    <br />
+    <br />
+
+    if (ViewBag.Nombre != null)
+    {
+        <h4 style="color: blueviolet">Usuario seleccionado: @ViewBag.Nombre</h4>
+    }
+    <br />
+    <br />
+
+    <button type="submit">Seleccionar usuario</button>
+}
